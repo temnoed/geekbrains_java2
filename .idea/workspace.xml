@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05ed16ff-0c0c-41b9-a521-f156c2a1a2cd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz2/MainClass.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz3/MainClass.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JAVA2/ru/geekbrains/java2/dz/dz1/MainClass.class" afterPath="$PROJECT_DIR$/out/production/JAVA2/ru/geekbrains/java2/dz/dz1/MainClass.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/JAVA2/ru/geekbrains/java2/dz/dz1/Queen.class" afterPath="$PROJECT_DIR$/out/production/JAVA2/ru/geekbrains/java2/dz/dz1/Queen.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz3/MainClass.java" afterPath="$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz3/MainClass.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,8 +33,8 @@
       <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz3/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+            <state relative-caret-position="81">
+              <caret line="3" column="8" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="22" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -888,8 +884,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/geekbrains/java2/dz/dz3/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
+        <state relative-caret-position="81">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="0" selection-start-column="1" selection-end-line="22" selection-end-column="3" />
           <folding />
         </state>
       </provider>
