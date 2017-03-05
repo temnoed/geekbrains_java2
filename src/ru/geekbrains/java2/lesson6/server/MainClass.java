@@ -10,18 +10,22 @@ public class MainClass {
     public static void main(String[] args) {
         ServerSocket server = null;
         Socket s = null;
+
         try {
             server = new ServerSocket(8189);
             System.out.println("Server created. Waiting for client...");
+
             while (true) {
                 s = server.accept();
                 System.out.println("Client connected");
+
                 PrintWriter out;
                 Scanner in;
                 String name;
                 name = "Client #";
                 out = new PrintWriter(s.getOutputStream());
                 in = new Scanner(s.getInputStream());
+
                 while (true) {
                     if (in.hasNext()) {
                         String w = in.nextLine();
@@ -31,9 +35,12 @@ public class MainClass {
                         if (w.equalsIgnoreCase("END")) break;
                     }
                 }
+
             }
+
         } catch (IOException e) {
             e.printStackTrace();
+
         } finally {
             try {
                 s.close();
@@ -43,5 +50,7 @@ public class MainClass {
                 e.printStackTrace();
             }
         }
+
+
     }
 }

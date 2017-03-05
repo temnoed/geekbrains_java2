@@ -29,7 +29,6 @@ public class ClientHandler implements Runnable {
 	public void run() {
 
 		while (true) {
-
 			// если во входном потоке была введена информация:
 			if (in.hasNext()) {
 				// вычитываем то что было введено

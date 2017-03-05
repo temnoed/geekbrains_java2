@@ -10,8 +10,8 @@ import java.net.Socket;
 import java.util.Scanner;
 
 
-
 public class MyWindow extends JFrame {
+
 	JTextField jtf;
 	JTextArea jta;
 
@@ -22,10 +22,10 @@ public class MyWindow extends JFrame {
 	PrintWriter out;
 
 
-	public  MyWindow () {
+	public MyWindow() {
 
 		try {
-			sock = new Socket( SERVER_ADDR, SERVER_PORT);
+			sock = new Socket(SERVER_ADDR, SERVER_PORT);
 			in = new Scanner(sock.getInputStream());
 			out = new PrintWriter(sock.getOutputStream());
 		} catch (IOException e) {
@@ -40,16 +40,16 @@ public class MyWindow extends JFrame {
 		jta.setEditable(false);
 		jta.setLineWrap(true);
 		JScrollPane jsp = new JScrollPane(jta);
-		add (jsp, BorderLayout.CENTER);
+		add(jsp, BorderLayout.CENTER);
 
 		JPanel bottomPanel = new JPanel(new BorderLayout());
-		add (bottomPanel, BorderLayout.SOUTH);
+		add(bottomPanel, BorderLayout.SOUTH);
 		JButton jbSend = new JButton("SEND");
-		bottomPanel.add (jbSend, BorderLayout.EAST);
+		bottomPanel.add(jbSend, BorderLayout.EAST);
 		jtf = new JTextField();
-		bottomPanel.add (jtf, BorderLayout.CENTER);
+		bottomPanel.add(jtf, BorderLayout.CENTER);
 
-		jbSend.addActionListener( e -> {
+		jbSend.addActionListener(e -> {
 			// берём текст из текстполя и посылаем:
 			if (!jtf.getText().trim().isEmpty()) {
 				sendMsg();
@@ -58,14 +58,14 @@ public class MyWindow extends JFrame {
 			}
 		});
 
-		jtf.addActionListener( e -> sendMsg());
+		jtf.addActionListener(e -> sendMsg());
 
 
-		new Thread (new Runnable () {
+		new Thread(new Runnable() {
 			@Override
-			public void run () {
-				try {
+			public void run() {
 
+				try {
 					while (true) {
 						if (in.hasNext()) {
 							String w = in.nextLine();
@@ -81,7 +81,7 @@ public class MyWindow extends JFrame {
 
 		addWindowListener(new WindowAdapter() {
 			@Override
-			public  void windowClosing (WindowEvent e) {
+			public void windowClosing(WindowEvent e) {
 				super.windowClosing(e);
 
 				try {
@@ -90,8 +90,8 @@ public class MyWindow extends JFrame {
 					out.close();
 					in.close();
 					sock.close();
-				} catch (IOException exc) {
 
+				} catch (IOException exc) {
 				}
 
 			}
@@ -102,9 +102,7 @@ public class MyWindow extends JFrame {
 	} // END --- MyWindow()
 
 
-
-
-	public void sendMsg () {
+	public void sendMsg() {
 		String a = jtf.getText();
 		out.println(a);
 		out.flush();

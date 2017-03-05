@@ -19,12 +19,15 @@ public class ClientHandler implements Runnable {
             in = new Scanner(s.getInputStream());
             CLIENTS_COUNT++;
             name = "Client #" + CLIENTS_COUNT;
+
         } catch (IOException e) {
         }
     }
 
+
     @Override
     public void run() {
+
         while (true) {
             if(in.hasNext()) {
                 String w = in.nextLine();
@@ -34,11 +37,15 @@ public class ClientHandler implements Runnable {
                 if(w.equalsIgnoreCase("END")) break;
             }
         }
+
         try {
             System.out.println("Client disconnected");
             s.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
     }
+
 }

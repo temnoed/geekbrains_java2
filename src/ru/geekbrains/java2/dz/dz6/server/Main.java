@@ -25,8 +25,10 @@ package ru.geekbrains.java2.dz.dz6.server;
 import ru.geekbrains.java2.lesson6.server.ClientHandler;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 
 public class Main {
@@ -40,13 +42,39 @@ public class Main {
 			server = new ServerSocket(8189);
 			System.out.println("Server created. Waiting for a client...");
 
+
 			while (true) {
+				// когда клиент присоединился:
 				s = server.accept();
 				System.out.println("Client connected");
-				new Thread( new ClientHandler(s)).start();
+
+				PrintWriter out;
+				Scanner in;
+				String name;
+				name = "Client #";
+				out = new PrintWriter(s.getOutputStream());
+				in = new Scanner(s.getInputStream());
+
+
+				while (true) {
+					// если во входном потоке была введена информация:
+					if (in.hasNext()) {
+						// вычитываем то что было введено
+						String w = in.nextLine();
+						// и выводим в консоль:
+						System.out.println(name + ": " + w);
+						out.println("echo: " + w);
+						out.flush();
+						if (w.equalsIgnoreCase("END")) break;
+					}
+				}
+
+
 			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
+
 		} finally {
 			try {
 				s.close();
@@ -56,6 +84,8 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
+
+
 	}
 
 }
