@@ -20,16 +20,42 @@
  (Если будете делать вариант со звездочкой, первую часть дз выполнять НЕ НАДО)
  */
 
+package ru.geekbrains.java2.dz.dz6.server;
 
-package ru.geekbrains.java2.dz.dz6;
+import ru.geekbrains.java2.lesson6.server.ClientHandler;
 
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
 
 
 public class Main {
 
 	public static void main(String[] args) {
 
+		ServerSocket server = null;
+		Socket s = null;
 
+		try {
+			server = new ServerSocket(8189);
+			System.out.println("Server created. Waiting for a client...");
+
+			while (true) {
+				s = server.accept();
+				System.out.println("Client connected");
+				new Thread( new ClientHandler(s)).start();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				s.close();
+				server.close();
+				System.out.println("Server closed");
+			} catch (IOException e ) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
